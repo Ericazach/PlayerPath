@@ -22,7 +22,8 @@ app.use((error, req, res, next) => {
     error instanceof mongoose.Error.CastError &&
     error.path === "_id"
   ) {
-    error = createError(404, "Resource not found");
+    const resourceName = error.model().constructor.modelName;
+    error = createError(404, `${resourceName} not found`);
   } else if (!error.status) {
     error = createError(500, error);
   }
