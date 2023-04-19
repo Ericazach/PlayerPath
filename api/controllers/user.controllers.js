@@ -2,6 +2,7 @@ const User = require("../models/user.model");
 
 module.exports.list = (req, res, next) => {
   User.find()
+    .populate("ownGames")
     .then((users) => res.json(users))
     .catch(next);
 };
@@ -14,11 +15,11 @@ module.exports.create = (req, res, next) => {
     .catch(next);
 };
 
-module.exports.detail = (req, res, next) => res.json(req.user); 
+module.exports.detail = (req, res, next) => res.json(req.user);
 
 module.exports.delete = (req, res, next) => {
   User.deleteOne({ _id: req.user.id })
-    .then(() => res.status(204).send)
+    .then(() => res.status(204).send())
     .catch(next);
 };
 

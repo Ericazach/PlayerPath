@@ -1,5 +1,9 @@
+import GameList from "./components/games/games-list/GamesList"
+
 function App() {
-  return <></>;
+  return <>
+  <GameList/>
+  </>;
 }
 
 export default App;

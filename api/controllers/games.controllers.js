@@ -2,6 +2,7 @@ const Game = require("../models/game.model");
 
 module.exports.list = (req, res, next) => {
   Game.find()
+    .populate("ownGames comments likes")
     .then((games) => res.json(games))
     .catch(next);
 };

@@ -1,11 +1,11 @@
-const User = require("../models/user.model");
+const OwnGame = require("../models/ownGame.model");
 const createError = require("http-errors");
 
 module.exports.exists = (req, res, next) => {
-  User.findById(req.params.id)
-    .then((user) => {
-      if (user) {
-        req.user = user;
+  OwnGame.findById(req.params.id)
+    .then((ownGame) => {
+      if (ownGame) {
+        req.ownGame = ownGame;
         next();
       } else {
         next(createError(404, "Game not found"));

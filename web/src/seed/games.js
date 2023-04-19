@@ -1,4 +1,4 @@
-[
+ [
   {
     platform: "ps4",
     progress: 100,
