@@ -33,7 +33,7 @@ const gameSchema = new Schema(
 );
 
 gameSchema.virtual("comments", {
-  ref: "Comments",
+  ref: "Comment",
   localField: "_id",
   foreignField: "game",
   justOne: false,

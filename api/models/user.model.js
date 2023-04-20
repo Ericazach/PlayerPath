@@ -31,10 +31,6 @@ const userSchema = new Schema(
       type: String,
       required: "User bio is required",
     },
-    ownGames: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "OwnGame",
-    },
   },
   {
     toJSON: {
@@ -49,6 +45,13 @@ const userSchema = new Schema(
     },
   }
 );
+
+userSchema.virtual("ownGames", {
+  ref: "OwnGame",
+  localField: "_id",
+  foreignField: "ownGame",
+  justOne: false,
+});
 
 userSchema.pre("save", function (next) {
   const user = this;

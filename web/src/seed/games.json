@@ -1,6 +1,6 @@
- [
+[
   {
-    platform: "ps4",
+    "platform": "ps4",
     progress: 100,
     trophies: {
       bronze: 19,

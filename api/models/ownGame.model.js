@@ -11,6 +11,7 @@ const ownGameSchema = new Schema(
     game: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Game",
+      unique: true,
       // required: "Game is required",
     },
     trophies: [String],
@@ -18,7 +19,7 @@ const ownGameSchema = new Schema(
       {
         type: String,
         enum: ["WishList", "inProgress", "Completed"],
-      // required: "State is required",
+        required: "State is required",
       },
     ],
     progress: {
@@ -38,5 +39,5 @@ const ownGameSchema = new Schema(
   }
 );
 
-const OwnGame = mongoose.model("ownGame", ownGameSchema);
+const OwnGame = mongoose.model("OwnGame", ownGameSchema);
 module.exports = OwnGame;
