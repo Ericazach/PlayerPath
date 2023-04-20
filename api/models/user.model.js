@@ -17,6 +17,10 @@ const userSchema = new Schema(
       required: "Email is required",
       match: [/^\S+@\S+\.\S+$/, "Student email must be valid"],
     },
+    confirm: {
+      type: Boolean,
+      default: process.env.USER_CONFIRMATION_REQUIRED === "false"
+    },
     password: {
       type: String,
       required: "User password is required",

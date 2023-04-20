@@ -25,6 +25,7 @@ router.get("/games/:id", gamesMid.exists, games.detail);
 router.get("/users", user.list);
 router.post("/users", user.create);
 router.get("/users/:id", userMid.exists, user.detail);
+router.get("/users/:id/confirm", userMid.exists, user.confirm);
 router.delete("/users/:id", userMid.exists, user.delete);
 router.patch("/users/:id", userMid.exists, user.edit);
 

@@ -1,4 +1,5 @@
 const User = require("../models/user.model");
+const nodemailer = require("../config/nodemailer");
 
 module.exports.list = (req, res, next) => {
   User.find()
@@ -10,8 +11,18 @@ module.exports.list = (req, res, next) => {
 module.exports.create = (req, res, next) => {
   User.create(req.body)
     .then((user) => {
+      nodemailer.sendConfirmationEmail(user);
       res.status(201).json(user);
     })
+    .catch(next);
+};
+
+module.exports.confirm = (req, res, next) => {
+  req.user.confirm = true;
+
+  req.user
+    .save()
+    .then((user) => res.json(user))
     .catch(next);
 };
 
