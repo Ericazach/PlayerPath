@@ -18,6 +18,6 @@ module.exports.checkOwner = (req, res, next) => {
   if (req.ownGame.user.toString() !== req.user.id.toString()) {
     next(createError(403, "Forbidden"));
   } else {
-    next;
+    next();
   }
 };

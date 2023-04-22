@@ -6,13 +6,13 @@ const ownGameSchema = new Schema(
     user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
-      // required: "User is required",
+      required: "User is required",
     },
     game: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Game",
       unique: true,
-      // required: "Game is required",
+      required: "Game is required",
     },
     trophies: [String],
     state: [

@@ -8,7 +8,8 @@ module.exports.list = (req, res, next) => {
 };
 
 module.exports.create = (req, res, next) => {
-  OwnGame.create(req.body)
+  const { trophies, game } = req.body;
+  OwnGame.create({ trophies, game, user: req.user.id })
     .then((ownGame) => res.status(201).json(ownGame))
     .catch(next);
 };

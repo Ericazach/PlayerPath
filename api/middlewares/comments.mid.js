@@ -3,7 +3,6 @@ const createError = require("http-errors");
 
 module.exports.exists = (req, res, next) => {
   const commentId = req.params.commentId || req.params.id;
-  console.log(commentId);
 
   Comment.findById(commentId)
     .then((comment) => {
@@ -18,9 +17,9 @@ module.exports.exists = (req, res, next) => {
 };
 
 module.exports.checkOwner = (req, res, next) => {
-  if (req.comment.author.toString() !== req.user.id.toString()) {
+  if (req.comment.author.toString() !== req.user.id) {
     next(createError(403, "Forbidden"));
   } else {
-    next;
+    next();
   }
 };

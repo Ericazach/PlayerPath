@@ -4,7 +4,7 @@ module.exports.create = (req, res, next) => {
   Comment.create({
     text: req.body.text,
     game: req.params.id,
-    author: "64416deeee5be87dfcedb2d7", //req.user.id,
+    author: req.user.id,
   })
     .then((comment) => res.json(comment))
     .catch(next);
