@@ -11,7 +11,7 @@ const transporter = nodemailer.createTransport({
 module.exports.sendConfirmationEmail = (user) => {
   transporter
     .sendMail({
-      from: "PlayePath <ericaironchack@gmail.com>",
+      from: "PlayerPath <ericaironchack@gmail.com>",
       to: user.email,
       subject: "Confirm your account",
       html: `

@@ -14,7 +14,7 @@ const gameSchema = new Schema(
     gameImg: {
       type: String,
       required: "User image url is required",
-      match: [/^https?:\/\/.+\.(jpg|jpeg|png)$/, "Image URL must be valid"],
+      // match: [/^https?:\/\/.+\.(jpg|jpeg|png)$/, "Image URL must be valid"],
     },
     trophies: [String],
     tags: [String],

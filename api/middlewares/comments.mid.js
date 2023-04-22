@@ -16,3 +16,11 @@ module.exports.exists = (req, res, next) => {
     })
     .catch(next);
 };
+
+module.exports.checkOwner = (req, res, next) => {
+  if (req.comment.author.toString() !== req.user.id.toString()) {
+    next(createError(403, "Forbidden"));
+  } else {
+    next;
+  }
+};
