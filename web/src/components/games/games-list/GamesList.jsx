@@ -1,8 +1,7 @@
 import { useState } from "react";
-import GameJson from "../../../seed/games";
 
 function GamesList() {
-  const [games, setGames] = useState([GameJson]);
+  const [games, setGames] = useState([]);
   return <></>;
 }
 

@@ -1,9 +1,11 @@
-import GameList from "./components/games/games-list/GamesList"
+import UserForm from "./components/users/users-form/UserForm";
 
 function App() {
-  return <>
-  <GameList/>
-  </>;
+  return (
+    <>
+      <UserForm />
+    </>
+  );
 }
 
 export default App;

@@ -15,7 +15,7 @@ const userSchema = new Schema(
     email: {
       type: String,
       required: "Email is required",
-      match: [/^\S+@\S+\.\S+$/, "Student email must be valid"],
+      match: [/^\S+@\S+\.\S+$/, "User email must be valid"],
     },
     confirm: {
       type: Boolean,
@@ -28,7 +28,6 @@ const userSchema = new Schema(
     },
     profilePic: {
       type: String,
-      required: "User image url is required",
       match: [/^https?:\/\/.+\.(jpg|jpeg|png)$/, "Image URL must be valid"],
     },
     bio: {
