@@ -1,9 +1,16 @@
-import UserForm from "./components/users/users-form/UserForm";
+import { Route, Routes } from "react-router-dom";
+import RegisterPage from "./pages/RegisterPage";
+import HomePage from "./pages/HomePage";
+import NavbarGames from "./components/users/users-form/navbar/Navbar";
 
 function App() {
   return (
     <>
-      <UserForm />
+      <NavbarGames />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/register" element={<RegisterPage />} />
+      </Routes>
     </>
   );
 }

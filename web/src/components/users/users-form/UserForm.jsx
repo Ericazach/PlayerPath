@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import userService from "../../services/base-api/users";
+import userService from "../../services/users/users";
 import { useState } from "react";
 import { Alert } from "flowbite-react";
 
@@ -14,6 +14,7 @@ function UserForm() {
   const [serverError, setServerError] = useState(undefined);
 
   const onUserSubmit = (user) => {
+    serverError(undefined);
     userService
       .create(user)
       .then((user) => console.info(user))
@@ -45,7 +46,7 @@ function UserForm() {
         )}
         <div className="space-y-12 grid gap-5 justify-items-center mt-10 p-20 border">
           <div className="border-b pb-12 ">
-            <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <div className=" grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="sm:col-span-4">
                 <label
                   htmlFor="username"
@@ -63,6 +64,10 @@ function UserForm() {
                       placeholder="Username"
                       {...register("username", {
                         required: "Username is required",
+                        minLength: {
+                          value: 4,
+                          message: "User name needs at least 4 characters",
+                        },
                       })}
                     />
                     {errors.username && (
@@ -83,12 +88,16 @@ function UserForm() {
                 </label>
                 <div className="mt-2">
                   <textarea
-                    className={`block w-full rounded-md  py-1.5 text-[#FF9677]  ${
+                    className={`block w-full rounded-md text-lg py-1.5 text-[#FF9677]  ${
                       errors.bio ? "border-red-500 border-2" : ""
                     }`}
                     rows={3}
                     {...register("bio", {
                       required: "User bio is required",
+                      minLength: {
+                        value: 6,
+                        message: "User bio needs at least 6 characters",
+                      },
                     })}
                   />
                   {errors.bio && (
@@ -154,6 +163,10 @@ function UserForm() {
                     }`}
                     {...register("password", {
                       required: "User password is required",
+                      minLength: {
+                        value: 8,
+                        message: "User password needs at least 8 characters",
+                      },
                     })}
                   />
                   {errors.password && (

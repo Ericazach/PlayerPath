@@ -6,7 +6,7 @@ const GameArr = [
     name: "Resident Evil",
     description: "Random Game",
     gameImg:
-      "http://trophy01.np.community.playstation.net/trophy/np/NPWR07494_00_00114BD0BC93A5544E40ECC9E429529B7B3482AC11/DB96ABE15209E2D3AA820D2988F4FE5344662957.PNG",
+      "https://static.wikia.nocookie.net/residentevil/images/1/10/Resident_Evil_%281996_game%29.jpg/revision/latest/scale-to-width-down/1200?cb=20160705173054",
     trophies: ["Gold", "Silver"],
     tags: ["terror", "adventure"],
   },
@@ -14,7 +14,7 @@ const GameArr = [
     name: "God of War 2",
     description: "Random Game",
     gameImg:
-      "http://trophy01.np.community.playstation.net/trophy/np/NPWR04605_00_0003F44A427E5BD9F413208B08B93F612A1CA93137/ED3FA6A43EB1A9553598D71EDEC64923C1597003.png",
+      "https://m.media-amazon.com/images/M/MV5BYWQ5ZTM1YmMtNjQ2Ny00OGU4LWI5ZGMtOWNkZTY0MjJjNTZjXkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_.jpg",
     trophies: ["Gold", "Silver"],
     tags: ["terror", "adventure"],
   },
@@ -22,7 +22,7 @@ const GameArr = [
     name: "Ratchet & Clank: Into the Nexus",
     description: "Random Game",
     gameImg:
-      "http://trophy01.np.community.playstation.net/trophy/np/NPWR00737_00_00FA3A73EE3A2DEB2B40BF284C58DE0F58460C3C3F/D823EA0FFFEE6DEF4E8010EA7905C73747197693.png",
+      "https://static.wikia.nocookie.net/ratchet/images/7/75/Into_the_Nexus_front_cover.png/revision/latest?cb=20190216183719",
     trophies: ["Gold", "Silver"],
     tags: ["terror", "adventure"],
   },
@@ -30,7 +30,7 @@ const GameArr = [
     name: "Deadpool",
     description: "Random Game",
     gameImg:
-      "http://trophy01.np.community.playstation.net/trophy/np/NPWR04891_00_00E7BAFC1BB1DBC5F18363B5E38A2EC54D801D1E13/26F9A9B563D85E4504309D2167A61C4543926AC7.png",
+      "https://m.media-amazon.com/images/M/MV5BOTk3YzUyZjYtMzk4My00NjNiLTk4YTktOWM2MDI2MzE4MzFkXkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_FMjpg_UX1000_.jpg",
     trophies: ["Gold", "Silver"],
     tags: ["terror", "adventure"],
   },
@@ -38,7 +38,7 @@ const GameArr = [
     name: "Silent Hill",
     description: "Random Game",
     gameImg:
-      "http://trophy01.np.community.playstation.net/trophy/np/NPWR03529_00_00C8235FA05C36855A493038334B452749D23B4D8E/BA6E87245FDC6BE809323ACC139E71294A073367.png",
+      "https://static.wikia.nocookie.net/silent/images/9/9c/SH11EuropeanCover.png/revision/latest?cb=20160327234349",
     trophies: ["Gold", "Silver"],
     tags: ["terror", "adventure"],
   },
