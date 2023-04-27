@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import gamesService from "../../services/games/games";
+import gamesService from "../../../services/games/games";
 
 function GamesList() {
   const [games, setGames] = useState([]);

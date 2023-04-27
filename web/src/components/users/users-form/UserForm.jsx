@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import userService from "../../services/users/users";
+import userService from "../../../services/users/users";
 import { useState } from "react";
 import { Alert } from "flowbite-react";
 
@@ -8,16 +8,20 @@ function UserForm() {
     register,
     handleSubmit,
     setError,
+    reset,
     formState: { errors },
   } = useForm({ mode: "onBlur" });
 
   const [serverError, setServerError] = useState(undefined);
 
   const onUserSubmit = (user) => {
-    serverError(undefined);
+    setServerError();
     userService
       .create(user)
-      .then((user) => console.info(user))
+      .then((user) => {
+        console.info(user)
+        reset()
+      })
       .catch((error) => {
         const errors = error.response?.data?.errors;
         if (errors) {
@@ -47,7 +51,7 @@ function UserForm() {
         <div className="space-y-12 grid gap-5 justify-items-center mt-10 p-20 border">
           <div className="border-b pb-12 ">
             <div className=" grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-              <div className="sm:col-span-4">
+              <div className="sm:col-span-full">
                 <label
                   htmlFor="username"
                   className="block text-2xl font-medium leading-6 text-[#FF9677]"
@@ -61,7 +65,6 @@ function UserForm() {
                         errors.username ? "border-red-500 border-2" : ""
                       }`}
                       type="text"
-                      placeholder="Username"
                       {...register("username", {
                         required: "Username is required",
                         minLength: {
@@ -118,7 +121,7 @@ function UserForm() {
               Personal Information
             </h2>
 
-            <div className="sm:col-span-4 mt-10">
+            <div className="sm:col-span-full mt-10">
               <label
                 htmlFor="email"
                 className="block text-l font-medium leading-6 text-[#FF9677]"
@@ -148,7 +151,7 @@ function UserForm() {
             </div>
 
             <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-6">
-              <div className="sm:col-span-4">
+              <div className="sm:col-span-full">
                 <label
                   htmlFor="password"
                   className="block text-l font-medium leading-6 text-[#FF9677]"

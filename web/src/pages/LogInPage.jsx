@@ -1,7 +1,7 @@
 import React from "react";
-import UserForm from "../components/users/users-form/UserForm";
+import UserLogin from "../components/users/users-login/UserLogin";
 
-function RegisterPage() {
+function LogInPage() {
   return (
     <div>
       <div className="flex justify-center align-middle">
@@ -11,9 +11,9 @@ function RegisterPage() {
           alt="logo"
         />
       </div>
-      <UserForm />
+      <UserLogin />
     </div>
   );
 }
 
-export default RegisterPage;
+export default LogInPage;

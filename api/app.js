@@ -11,7 +11,7 @@ const app = express();
 
 const cors = require("./config/cors.config");
 
-const secure = require("./middlewares/secure.mid")
+const secure = require("./middlewares/secure.mid");
 
 app.use(cors);
 app.use(express.json());
@@ -24,7 +24,7 @@ app.use((req, res, next) => next(createError(404, "Route not found")));
 app.use((error, req, res, next) => {
   if (error instanceof mongoose.Error.ValidationError) {
     error = createError(400, error);
-  } else if ( 
+  } else if (
     error instanceof mongoose.Error.CastError &&
     error.path === "_id"
   ) {
@@ -41,7 +41,8 @@ app.use((error, req, res, next) => {
 
   if (error.errors) {
     const errors = Object.keys(error.errors).reduce((errors, errorKey) => {
-      errors[errorKey] = error.errors[errorKey].message;
+      errors[errorKey] =
+        error.errors[errorKey].message || error.errors[errorKey];
       return errors;
     }, {});
     data.errors = errors;
