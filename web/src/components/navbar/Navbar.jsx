@@ -2,6 +2,7 @@ import { Navbar, Dropdown } from "flowbite-react";
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthStore";
+import "./navbar.css";
 
 const renderNavLink = ({ isActive }) =>
   isActive ? "text-[#FF9677]" : "text-[#41436A]";
@@ -10,7 +11,7 @@ function NavbarGames() {
   const { user, logout } = useContext(AuthContext);
 
   return (
-    <Navbar className="bg-[#974062]">
+    <Navbar className="navbar-bg">
       <NavLink to="/">
         <img
           className=" logo max-w-[80px] min-h-[80px]"
@@ -18,7 +19,6 @@ function NavbarGames() {
           alt="logo"
         />
       </NavLink>
-
       <div className="flex md:order-2">
         <Dropdown
           arrowIcon={false}
@@ -28,7 +28,8 @@ function NavbarGames() {
               className="w-14 logo min-w-[80px] min-h-[80px]"
               src={
                 user?.email
-                  ? user?.profilePic
+                  ? user?.profilePic ||
+                    "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
                   : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
               }
               alt="profilePic"
@@ -41,7 +42,7 @@ function NavbarGames() {
                 <span className="block text-lg"> {user.username} </span>
                 <span className="block truncate text-lg">{user.email}</span>
                 <Dropdown.Item>
-                  <NavLink to="/profile">
+                  <NavLink to={"/users/me"}>
                     <span className="text-lg">Profile</span>{" "}
                   </NavLink>
                 </Dropdown.Item>

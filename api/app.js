@@ -31,7 +31,10 @@ app.use((error, req, res, next) => {
     const resourceName = error.model().constructor.modelName;
     error = createError(404, `${resourceName} not found`);
   } else if (error.message.includes("E11000")) {
-    error = createError(409, "Duplicated");
+    Object.keys(error.keyValue).forEach(
+      (key) => (error.keyValue[key] = "Already exists")
+    );
+    error = createError(409, { errors: error.keyValue });
   } else if (!error.status) {
     error = createError(500, error);
   }

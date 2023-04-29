@@ -5,6 +5,8 @@ import NavbarGames from "./components/navbar/Navbar";
 import ProfilePage from "./pages/ProfilePage";
 import LogInPage from "./pages/LogInPage";
 import AuthStore from "./context/AuthStore";
+import GameDetailPage from "./pages/GameDetailPage";
+import PrivateRoute from "./guards/PrivateRoute";
 
 function App() {
   return (
@@ -15,7 +17,15 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LogInPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
+          <Route
+            path="/users/:userId"
+            element={
+              <PrivateRoute>
+                <ProfilePage />
+              </PrivateRoute>
+            }
+          />
+          <Route path="/games/:gameId" element={<GameDetailPage />} />
         </Routes>
       </AuthStore>
     </>

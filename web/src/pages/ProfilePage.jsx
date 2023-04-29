@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import UserDetail from "../components/users/user-detail/UserDetail";
 
 function ProfilePage() {
   return (
-    <div>ProfilePage</div>
-  )
+    <div>
+      <UserDetail />
+    </div>
+  );
 }
 
-export default ProfilePage
+export default ProfilePage;

@@ -2,36 +2,37 @@ import { useForm } from "react-hook-form";
 import userService from "../../../services/users/users";
 import { useState } from "react";
 import { Alert } from "flowbite-react";
+import { useNavigate } from "react-router-dom";
 
 function UserForm() {
   const {
     register,
     handleSubmit,
     setError,
-    reset,
     formState: { errors },
   } = useForm({ mode: "onBlur" });
 
   const [serverError, setServerError] = useState(undefined);
+  const navigate = useNavigate();
 
-  const onUserSubmit = (user) => {
-    setServerError();
-    userService
-      .create(user)
-      .then((user) => {
-        console.info(user)
-        reset()
-      })
-      .catch((error) => {
-        const errors = error.response?.data?.errors;
-        if (errors) {
-          Object.keys(errors).forEach((inputName) =>
-            setError(inputName, { message: errors[inputName] })
-          );
-        } else {
-          setServerError(error.message);
-        }
-      });
+  const onUserSubmit = async (user) => {
+    try {
+      setServerError(undefined);
+      console.debug("Registering...");
+      user = await userService.create(user);
+      navigate("/login", { state: { user } });
+    } catch (error) {
+      const errors = error.response?.data?.errors;
+      if (errors) {
+        console.error(error.message, errors);
+        Object.keys(errors).forEach((inputName) =>
+          setError(inputName, { message: errors[inputName] })
+        );
+      } else {
+        console.error(error);
+        setServerError(error.message);
+      }
+    }
   };
 
   return (

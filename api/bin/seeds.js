@@ -6,7 +6,7 @@ const GameArr = [
     name: "Resident Evil",
     description: "Random Game",
     gameImg:
-      "https://static.wikia.nocookie.net/residentevil/images/1/10/Resident_Evil_%281996_game%29.jpg/revision/latest/scale-to-width-down/1200?cb=20160705173054",
+      "https://static.wikia.nocookie.net/residentevil/images/1/10/Resident_Evil_%281996_game%29.jpg",
     trophies: ["Gold", "Silver"],
     tags: ["terror", "adventure"],
   },

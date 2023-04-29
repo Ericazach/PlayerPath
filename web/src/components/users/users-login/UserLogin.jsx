@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import userService from "../../../services/users/users";
 import { useState, useContext } from "react";
 import { Alert } from "flowbite-react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthStore";
 
 function UserLogin() {
@@ -16,6 +16,7 @@ function UserLogin() {
   const [serverError, setServerError] = useState(undefined);
   const { onUserChange } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const onLoginSubmit = async (user) => {
     try {
@@ -38,7 +39,16 @@ function UserLogin() {
 
   return (
     <div>
-
+      {location?.state?.user.confirm === false && (
+        <div className="flex justify-center items-center">
+          <Alert color="failure" className="mt-20 h-30 w-[400px]">
+            <div className="text-2xl text-center text-[#41436a]">
+              You must active your account before login, please check your
+              inbox.
+            </div>
+          </Alert>
+        </div>
+      )}
       <form
         onSubmit={handleSubmit(onLoginSubmit)}
         className="grid justify-center "

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import gamesService from "../../../services/games/games";
+import GameItem from "../games-item/GameItem";
 
 function GamesList() {
   const [games, setGames] = useState([]);
@@ -8,20 +9,18 @@ function GamesList() {
     gamesService
       .list()
       .then((res) => setGames(res))
-      .catch((err) => console.error);
+      .catch((err) => console.error(err));
   }, []);
 
   return (
     <>
-      {games.map((game) => (
-        <div
-          key={game.name}
-          className="flex flex-col justify-center items-center mb-10 mt-5"
-        >
-          <h1 className="text-2xl text-[#FF9677]">{game.name}</h1>
-          <img className="w-1/4" src={game.gameImg} alt="game" />
-        </div>
-      ))}
+      <div className="flex flex-wrap gap-10 mt-10">
+        {games.map((game) => (
+          <div key={game.name} className="text-center w-[400px] h-[550px]">
+            <GameItem name={game.name} gameImg={game.gameImg} id={game.id} />
+          </div>
+        ))}
+      </div>
     </>
   );
 }
