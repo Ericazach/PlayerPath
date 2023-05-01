@@ -9,7 +9,6 @@ function UserFormEdit() {
   const {
     register,
     handleSubmit,
-    setError,
     formState: { errors },
   } = useForm({ mode: "onBlur" });
 
@@ -47,15 +46,12 @@ function UserFormEdit() {
                       alt="user"
                     />
 
-                    <label htmlFor="file" className="">
-                      Profile Pic
-                    </label>
                     <input
                       id="file"
                       type="file"
                       accept="image/"
                       {...register("file")}
-                      className="form-container-inputs-file"
+                      className="ms-3 rounded-full border "
                     />
                     {errors.profilePic && (
                       <div className="text-red-500 text-lg">

@@ -3,9 +3,9 @@ const { CloudinaryStorage } = require("multer-storage-cloudinary");
 const multer = require("multer");
 const maxSize = 2 * 1024 * 1024;
 cloudinary.config({
-  cloud_name: "dmpxijzou",
-  api_key: "327618797366193",
-  api_secret: "vfmzkKKdVJGzwHDru5o5_3wQm5o",
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_KEY_CLOUDINARY,
+  api_secret: process.env.API_SECRET_CLOUDINARY,
 });
 const storageUser = new CloudinaryStorage({
   cloudinary: cloudinary,
