@@ -42,7 +42,7 @@ function NavbarGames() {
                 <span className="block text-lg"> {user.username} </span>
                 <span className="block truncate text-lg">{user.email}</span>
                 <Dropdown.Item>
-                  <NavLink to={"/users/me"}>
+                  <NavLink to={`/users/${user.id}`}>
                     <span className="text-lg">Profile</span>{" "}
                   </NavLink>
                 </Dropdown.Item>

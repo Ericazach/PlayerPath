@@ -27,7 +27,7 @@ function UserDetail() {
         <div className="card mt-10">
           <div className="card-container flex flex-col justify-center items-center">
             <button className="button self-end primary me-2 rounded-full">
-              <NavLink to={"/users/me/edit"}>Edit Profile</NavLink>
+              <NavLink to={`/users/${user.id}/edit`}>Edit Profile</NavLink>
             </button>
             <img
               className="logo max-w-[180px] min-h-[180px]"
@@ -44,18 +44,6 @@ function UserDetail() {
               <button className="button primary">My Games</button>
               <button className="button primary ghost">Wishlist</button>
             </div>
-          </div>
-          <div className="skills">
-            <h6 className="h6">Skills</h6>
-            <ul>
-              <li>UI / UX</li>
-              <li>Front End Development</li>
-              <li>HTML</li>
-              <li>CSS</li>
-              <li>JavaScript</li>
-              <li>React</li>
-              <li>Node</li>
-            </ul>
           </div>
         </div>
       )}
