@@ -3,6 +3,8 @@ const nodemailer = require("../config/nodemailer");
 const createError = require("http-errors");
 const jwt = require("jsonwebtoken");
 
+const maxTimeSession = parseInt(process.env.MAX_TIME_SESSION) || 3600;
+
 module.exports.list = (req, res, next) => {
   User.find()
     .populate("ownGames")
@@ -46,8 +48,8 @@ module.exports.edit = (req, res, next) => {
   if (req.user.id !== req.params.id) {
     return next(createError(403, "Forbidden"));
   }
-
-  Object.assign(req.user, req.body);
+  const newProfilePic = req.file.path || "";
+  Object.assign(req.user, { ...req.body, profilePic: newProfilePic });
 
   req.user
     .save()
@@ -79,7 +81,7 @@ module.exports.login = (req, res, next) => {
         }
 
         const token = jwt.sign(
-          { sub: user.id, exp: Date.now() / 1000 + 3_600 },
+          { sub: user.id, exp: Date.now() / 1000 + maxTimeSession },
           process.env.JWT_SECRET
         );
 

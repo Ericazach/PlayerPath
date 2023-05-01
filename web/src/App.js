@@ -7,6 +7,7 @@ import LogInPage from "./pages/LogInPage";
 import AuthStore from "./context/AuthStore";
 import GameDetailPage from "./pages/GameDetailPage";
 import PrivateRoute from "./guards/PrivateRoute";
+import EditProfilePage from "./pages/EditProfilePage";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             }
           />
           <Route path="/games/:gameId" element={<GameDetailPage />} />
+          <Route path="/users/:userId/edit" element={<EditProfilePage />} />
         </Routes>
       </AuthStore>
     </>

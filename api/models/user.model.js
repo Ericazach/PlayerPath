@@ -19,7 +19,7 @@ const userSchema = new Schema(
     },
     confirm: {
       type: Boolean,
-      default: false,
+      default: true,
     },
     password: {
       type: String,
@@ -29,6 +29,8 @@ const userSchema = new Schema(
     profilePic: {
       type: String,
       match: [/^https?:\/\/.+\.(jpg|jpeg|png)$/, "Image URL must be valid"],
+      default:
+        "https://1.bp.blogspot.com/-HoI-Nc2GoIo/W0o1pDDhNdI/AAAAAAAADsg/kWmHbVTLREo171PiXwDVwphjrJtITYobQCLcBGAs/s1600/silenthillplaystationcapaneoplayyerimag11111.jpg",
     },
     bio: {
       type: String,

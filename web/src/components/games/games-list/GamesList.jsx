@@ -16,7 +16,7 @@ function GamesList() {
     <>
       <div className="flex flex-wrap gap-10 mt-10">
         {games.map((game) => (
-          <div key={game.name} className="text-center w-[400px] h-[550px]">
+          <div key={game.name} className="text-center w-[300px] h-[450px]">
             <GameItem name={game.name} gameImg={game.gameImg} id={game.id} />
           </div>
         ))}

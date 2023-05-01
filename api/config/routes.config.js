@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const storage = require("../config/multer.config");
 
 const ownGames = require("../controllers/ownGames.controllers");
 const games = require("../controllers/games.controllers");
@@ -42,7 +43,13 @@ router.post("/users", user.create);
 router.get("/users/:id", secure.auth, userMid.exists, user.detail);
 router.get("/users/:id/confirm", userMid.exists, user.confirm);
 router.delete("/users/:id", secure.auth, userMid.exists, user.delete);
-router.patch("/users/:id", secure.auth, userMid.exists, user.edit);
+router.patch(
+  "/users/:id",
+  secure.auth,
+  userMid.exists,
+  storage.user.single("file"),
+  user.edit
+);
 
 router.post("/games/:id/like", secure.auth, gamesMid.exists, like.toggle);
 
