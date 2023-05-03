@@ -10,6 +10,7 @@ import PrivateRoute from "./guards/PrivateRoute";
 import EditProfilePage from "./pages/EditProfilePage";
 import OwnGameDetailPage from "./pages/OwnGameDetailPage";
 import OwnGameCreatePage from "./pages/OwnGameCreatePage";
+import OwnGameEditPage from "./pages/OwnGameEditPage";
 
 function App() {
   return (
@@ -30,7 +31,14 @@ function App() {
           />
           <Route path="/games/:gameId" element={<GameDetailPage />} />
           <Route path="/users/:userId/edit" element={<EditProfilePage />} />
-          <Route path="/ownGames/:gameId/create" element={<OwnGameCreatePage />} />
+          <Route
+            path="/ownGames/:gameId/create"
+            element={<OwnGameCreatePage />}
+          />
+          <Route
+            path="/ownGames/:ownGameId/edit"
+            element={<OwnGameEditPage />}
+          />
           <Route path="/ownGames/:ownGameId" element={<OwnGameDetailPage />} />
         </Routes>
       </AuthStore>

@@ -1,15 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import ownGameService from "../../../../services/ownGames/ownGames";
-import { NavLink, useNavigate } from "react-router-dom";
-import { useContext } from "react";
-import { useParams } from "react-router-dom";
-import { AuthContext } from "../../../../context/AuthStore";
-import gameService from "../../../../services/games/games";
 
-function OwnGameCreateForm() {
-  const { gameId } = useParams();
-  const [game, setGame] = useState();
+function OwnGameEditForm() {
+  const { ownGameId } = useParams();
+  const [ownGame, setOwnGame] = useState();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fecthOwnGame = async () => {
+      try {
+        const newOwnGame = await ownGameService.detail(ownGameId);
+        setOwnGame(newOwnGame);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fecthOwnGame();
+  }, []);
 
   const {
     register,
@@ -17,52 +27,31 @@ function OwnGameCreateForm() {
     formState: { errors },
   } = useForm({ mode: "onBlur" });
 
-  const { user } = useContext(AuthContext);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    async function fetchGame() {
-      try {
-        const game = await gameService.detail(gameId);
-        setGame(game);
-      } catch (error) {
-        console.error(error);
-        const statusCode = error.response?.status;
-        if (statusCode === 404) {
-          navigate("/");
-        }
-      }
-    }
-
-    fetchGame();
-  }, [gameId]);
-
-  const onAddGame = async (ownGame) => {
+  const onEditOwnGame = async (ownGame) => {
     try {
-      const newOwnGame = await ownGameService.create(ownGame);
-      navigate("/users/me");
+      const editeOwnGame = await ownGameService.edit(ownGameId, ownGame);
+      navigate(`/ownGames/${ownGameId}`);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
-  if (!game) {
-    return;
+  if (!ownGame) {
+    return <></>;
   }
-
   return (
     <div>
-      <form onSubmit={handleSubmit(onAddGame)}>
+      <form onSubmit={handleSubmit(onEditOwnGame)}>
         <div className="card mt-10">
           <div className="card-container flex  justify-center items-center">
             <img
               className="ms-5 mb-5 object-cover w-full rounded-full h-[500px]  md:w-[450px] md:rounded-r-lg md:rounded-l-lg"
-              src={game.gameImg}
+              src={ownGame.game.gameImg}
               alt=""
             />
             <div className="space-y-12 grid gap-5 justify-items-center p-20 ">
               <h5 className=" text-2xl font-bold tracking-tight text-gray-200 dark:text-white">
-                {game.name}
+                {ownGame.game.name}
               </h5>
               <div className="border-b border-gray-900/10 pb-12">
                 <div className="sm:col-span-full">
@@ -70,7 +59,7 @@ function OwnGameCreateForm() {
                     <div className=" rounded-md shadow-sm ring-1 ring-inset">
                       <input
                         type="hidden"
-                        value={game.id}
+                        value={ownGame.game.id}
                         className={`block w-full rounded-md py-1.5  text-[#FF9677] sm:text-2xl sm:leading-6 `}
                         {...register("game")}
                       />
@@ -137,13 +126,13 @@ function OwnGameCreateForm() {
                 </div>
                 <div className="flex items-center justify-center gap-x-6">
                   <button className="rounded-md bg-[#FF9677] px-3 py-2 text-2xl font-semibold text-[#41436A] shadow-sm hover:bg-[#974063] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#974063] mt-5">
-                    <NavLink to={"/users/me"}>Cancel</NavLink>
+                    <NavLink to={`/ownGames/${ownGame.id}`}>Cancel</NavLink>
                   </button>
                   <button
                     type="submit"
                     className="rounded-md bg-[#FF9677] px-3 py-2 text-2xl font-semibold text-[#41436A] shadow-sm hover:bg-[#974063] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#974063] mt-5"
                   >
-                    Add!
+                    Edit!
                   </button>
                 </div>
               </div>
@@ -155,4 +144,4 @@ function OwnGameCreateForm() {
   );
 }
 
-export default OwnGameCreateForm;
+export default OwnGameEditForm;

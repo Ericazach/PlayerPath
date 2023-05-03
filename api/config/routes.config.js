@@ -30,7 +30,7 @@ router.patch(
   "/owngames/:id",
   secure.auth,
   ownGamesMid.exists,
-  ownGamesMid.checkOwner,
+  // ownGamesMid.checkOwner,
   ownGames.edit
 );
 

@@ -45,36 +45,34 @@ function GameDetail() {
                   {game.name}
                 </h5>
                 <p className="m-3 font-normal text-white dark:text-gray-200">
-                  Ratchet & Clank: Into the Nexus (known as Ratchet & Clank:
-                  Nexus in Europe and Australia) is an entry in the Ratchet &
-                  Clank series serving as an epilogue to the Future saga,
-                  developed by Insomniac Games and published by Sony Interactive
-                  Entertainment. It is a shorter title than A Crack in Time, but
-                  longer than Quest for Booty or Full Frontal Assault. It was
-                  released in November 2013 for the PlayStation 3. It was also
-                  added to the PlayStation Now streaming service library of
-                  games. A related mobile spinoff, Before the Nexus, was also
-                  released that could transfer Raritanium to an Into the Nexus
-                  save.
+                  {game.description}
                 </p>
+                <p className="m-3 font-normal text-white dark:text-gray-200"></p>
 
                 {!user ? (
                   <></>
                 ) : (
                   <>
-                    <div className="buttons mb-3 text-center">
+                    <div className="flex buttons mb-3 text-center">
                       <Link to={`/ownGames/${game.id}/create`}>
                         <button className="button primary">
                           Add to My Games
                         </button>
                       </Link>
-                      {/* <button className="button primary ghost">Wishlist</button> */}
+                      {/* <Link to={`/ownGames/${game.id}/create`}>
+                        <button className="button primary ghost">
+                          Leave a Comment
+                        </button>
+                      </Link> */}
                     </div>
                   </>
                 )}
               </div>
             </div>
           </div>
+          {/* <div className="grid grid-cols-3 p-6">
+            <Comments currentUserId={user.id} />
+          </div> */}
         </>
       )}
     </>
