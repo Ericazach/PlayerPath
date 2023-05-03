@@ -25,11 +25,25 @@ function OwnGameDetail() {
 
     fetchOwnGame();
   }, [ownGameId]);
+
+  const handleDeleteButton = async () => {
+    try {
+      const deleteResult = window.confirm(
+        "Are you sure that you want to delete this Game?"
+      );
+      if (deleteResult) {
+        await ownGameService.remove(ownGameId);
+        navigate("/users/me");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div>
       {!ownGame ? (
         <>
-          {" "}
           <p className="text-white">Loading...</p>
         </>
       ) : (
@@ -73,9 +87,14 @@ function OwnGameDetail() {
                   <Link to={`/ownGames/${ownGame.id}/edit`}>
                     <button className="button primary">Edit</button>
                   </Link>
-                  <Link to={`/ownGames/${ownGame.id}/edit`}>
-                    <button className="button primary">Delete</button>
-                  </Link>
+
+                  <button
+                    className="button primary"
+                    onClick={handleDeleteButton}
+                  >
+                    Delete
+                  </button>
+
                   {/* <Link to={`/ownGames/${game.id}/create`}>
                         <button className="button primary ghost">
                           Leave a Comment

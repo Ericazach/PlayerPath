@@ -23,14 +23,12 @@ router.delete(
   "/owngames/:id",
   secure.auth,
   ownGamesMid.exists,
-  ownGamesMid.checkOwner,
   ownGames.delete
 );
 router.patch(
   "/owngames/:id",
   secure.auth,
   ownGamesMid.exists,
-  // ownGamesMid.checkOwner,
   ownGames.edit
 );
 

@@ -29,7 +29,7 @@ function OwnGameEditForm() {
 
   const onEditOwnGame = async (ownGame) => {
     try {
-      const editeOwnGame = await ownGameService.edit(ownGameId, ownGame);
+      const editedOwnGame = await ownGameService.edit(ownGameId, ownGame);
       navigate(`/ownGames/${ownGameId}`);
     } catch (error) {
       console.error(error);
