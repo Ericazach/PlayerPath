@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 function GameItem({ name, gameImg, id }) {
   return (
     <div className="text-center ">
-      <h1 className="text-2xl mb-4 text-[#FF9677]">
+      {/* <h1 className="text-2xl mb-4 text-[#FF9677]">
         <Link to={`/games/${id}`}>{name}</Link>
-      </h1>
+      </h1> */}
       <Link to={`/games/${id}`}>
         <img
-          className="object-cover w-[300px] h-[380px] max-w-full rounded-lg border"
+          className=" mb-6 object-cover w-[300px] h-[380px] max-w-full rounded-lg border"
           src={gameImg}
           alt="game"
         />

@@ -5,7 +5,7 @@ import { AuthContext } from "../../context/AuthStore";
 import "./navbar.css";
 
 const renderNavLink = ({ isActive }) =>
-  isActive ? "text-[#FF9677]" : "text-[#41436A]";
+  isActive ? "text-[#FF9677]" : "text-white";
 
 function NavbarGames() {
   const { user, logout } = useContext(AuthContext);
@@ -70,7 +70,7 @@ function NavbarGames() {
         ) : (
           <div className="flex justify-end items-end gap-3">
             <NavLink to="/register" className={renderNavLink}>
-              <span className="text-2xl ">Register</span>
+              <div className="text-2xl">Register</div>
             </NavLink>
             <NavLink to="/login" className={renderNavLink}>
               <span className="text-2xl ">Login</span>
