@@ -1,0 +1,15 @@
+.button.primary {
+  background-color: #57597e;
+  border: 1px solid #57597e;
+  border-radius: 3px;
+  color: white;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  padding: 10px 25px;
+}
+
+
+.button.primary.ghost {
+  background-color: transparent;
+  color: white;
+}

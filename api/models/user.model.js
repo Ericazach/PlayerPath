@@ -54,7 +54,7 @@ const userSchema = new Schema(
 userSchema.virtual("ownGames", {
   ref: "OwnGame",
   localField: "_id",
-  foreignField: "ownGame",
+  foreignField: "user",
   justOne: false,
 });
 

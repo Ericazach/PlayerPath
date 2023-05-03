@@ -6,14 +6,18 @@ module.exports.exists = (req, res, next) => {
 
   if (userId === "me") {
     if (req.user) {
-      req.user = req.user;
       next();
     } else {
       next(createError(401, "Missing Access token"));
     }
   } else {
     User.findById(userId)
-      .populate("ownGames")
+      .populate({
+        path: "ownGames",
+        populate: {
+          path: "user game"
+        }
+      })
       .then((user) => {
         if (user) {
           req.user = user;

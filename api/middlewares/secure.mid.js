@@ -22,7 +22,12 @@ module.exports.auth = (req, res, next) => {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
     User.findById(decoded.sub)
-      .populate("ownGames")
+      .populate({
+        path: "ownGames",
+        populate: {
+          path: "user game",
+        },
+      })
       .then((user) => {
         if (user) {
           req.user = user;
@@ -30,8 +35,7 @@ module.exports.auth = (req, res, next) => {
         } else {
           next(createError(401, "user not found"));
         }
-      })
-      .catch(next);
+      });
   } catch (err) {
     next(createError(401, err));
   }

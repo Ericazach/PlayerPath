@@ -3,12 +3,13 @@ const createError = require("http-errors");
 
 module.exports.exists = (req, res, next) => {
   OwnGame.findById(req.params.id)
+    .populate("game user")
     .then((ownGame) => {
       if (ownGame) {
         req.ownGame = ownGame;
         next();
       } else {
-        next(createError(404, "Game not found"));
+        next(createError(404, "ownGame not found"));
       }
     })
     .catch(next);

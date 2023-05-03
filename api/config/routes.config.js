@@ -16,8 +16,8 @@ const secure = require("../middlewares/secure.mid");
 
 router.post("/login", user.login);
 
-router.get("/owngames", ownGames.list);
-router.post("/owngames", secure.auth, ownGames.create);
+router.get("/owngames", secure.auth, ownGames.list);
+router.post("/owngames/create", secure.auth, ownGames.create);
 router.get("/owngames/:id", secure.auth, ownGamesMid.exists, ownGames.detail);
 router.delete(
   "/owngames/:id",

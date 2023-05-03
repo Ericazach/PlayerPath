@@ -1,15 +1,15 @@
 const OwnGame = require("../models/ownGame.model");
 
 module.exports.list = (req, res, next) => {
-  OwnGame.find()
+  OwnGame.find({ user: req.user.id })
     .populate("user game")
     .then((ownGame) => res.json(ownGame))
     .catch(next);
 };
 
 module.exports.create = (req, res, next) => {
-  const { trophies, game } = req.body;
-  OwnGame.create({ trophies, game, user: req.user.id })
+  const { trophies, game, progress, state } = req.body;
+  OwnGame.create({ trophies, game, progress, state, user: req.user.id })
     .then((ownGame) => res.status(201).json(ownGame))
     .catch(next);
 };

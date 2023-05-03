@@ -24,7 +24,7 @@ function UserDetail() {
       {!user ? (
         <p>Loading...</p>
       ) : (
-        <div className="card mt-10">
+        <div className="card mt-5">
           <div className="card-container flex flex-col justify-center items-center">
             <button className="button self-end primary me-2 rounded-full">
               <NavLink to={`/users/${user.id}/edit`}>Edit Profile</NavLink>

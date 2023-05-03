@@ -48,6 +48,7 @@ module.exports.edit = (req, res, next) => {
   if (req.user.id !== req.params.id) {
     return next(createError(403, "Forbidden"));
   }
+
   const newProfilePic = req.file.path || "";
   Object.assign(req.user, { ...req.body, profilePic: newProfilePic });
 

@@ -15,15 +15,13 @@ const ownGameSchema = new Schema(
       required: "Game is required",
     },
     trophies: [String],
-    state: [
-      {
-        type: String,
-        enum: ["WishList", "inProgress", "Completed"],
-        required: "State is required",
-      },
-    ],
+    state: {
+      type: String,
+      required: "State is required",
+    },
     progress: {
-      type: Number,
+      type: String,
+      required: "Progress is required",
     },
   },
   {
