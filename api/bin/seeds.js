@@ -8,7 +8,7 @@ const GameArr = [
       "The story is set in a post-apocalyptic United States, between the states of Colorado, Wyoming, Utah, California, and Nevada in the 31st century. Humans live in scattered, primitive tribes with varying levels of technological development. Their technologically advanced predecessors are remembered as the Old Ones.Large robotic creatures, known as machines, dominate the Earth. For the most part, they peacefully coexist with humans, who occasionally hunt them for parts.",
     gameImg: "https://m.media-amazon.com/images/I/71Uzb-UfIQS._AC_SL1000_.jpg",
     trophies: ["1", "2", "11", "65"],
-    tags: ["Action", "Science fiction", "Drama", "Open world"],
+    tags: ["Action", "Drama", "Open world"],
   },
   {
     name: "Horizon Forbidden West",
@@ -17,7 +17,7 @@ const GameArr = [
     gameImg:
       "https://www.vsgamers.es/thumbnails/product_gallery_large/uploads/products/sony/videojuegos/horizon-forbidden-west-ps4/galeria/horizon-forbidden-west-ps4-photos-image-cb451d0c54bad83538bf06d2911d25.jpg",
     trophies: ["1", "2", "11", "65"],
-    tags: ["Action", "Science fiction", "Drama", "Open world"],
+    tags: ["Action", "Drama", "Open world"],
   },
   {
     name: "Resident Evil 3",
@@ -46,7 +46,7 @@ const GameArr = [
   {
     name: "Ratchet & Clank: Into the Nexus",
     description:
-      "Ratchet & Clank: Into the Nexus (known as Ratchet & Clank: Nexus in PAL regions) is a 2013 platform video game developed by Insomniac Games and published by Sony Computer Entertainment for the PlayStation 3. It is the eighth main installment in the Ratchet & Clank series and the fourth and final installment in its Future saga.[6] The series is noted for the inclusion of exotic and unique locations and over-the-top gadgets, elements of the traditional Ratchet & Clank experience that return in this game.",
+      "Ratchet & Clank: Into the Nexus (known as Ratchet & Clank: Nexus in PAL regions) is a 2013 platform video game developed by Insomniac Games and published by Sony Computer Entertainment for the PlayStation 3. It is the eighth main installment in the Ratchet & Clank series and the fourth and final installment in its Future saga.",
     gameImg: "https://www.sportsdirect.com/images/imgzoom/80/80318669_xxl.jpg",
     trophies: ["1", "7", "7", "8"],
     tags: ["Action", "Science fiction", "Comedy"],

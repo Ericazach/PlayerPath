@@ -26,9 +26,13 @@ function UserDetail() {
       ) : (
         <div className="card mt-5">
           <div className="card-container flex flex-col justify-center items-center">
-            <button className="button self-end primary me-2 rounded-full">
+            <button
+              type="button"
+              className="self-end py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-white focus:outline-none bg-[#974063] rounded-lg  hover:bg-gray-600 hover:text-white focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+            >
               <NavLink to={`/users/${user.id}/edit`}>Edit Profile</NavLink>
             </button>
+
             <img
               className="logo max-w-[180px] min-h-[180px]"
               src={
@@ -40,10 +44,6 @@ function UserDetail() {
             <h3 className="h3">{user.username}</h3>
             <h6 className="h6">{user.email}</h6>
             <p className="p mb-5">{user.bio}</p>
-            <div className="buttons mb-3">
-              <button className="button primary">My Games</button>
-              <button className="button primary ghost">Wishlist</button>
-            </div>
           </div>
         </div>
       )}

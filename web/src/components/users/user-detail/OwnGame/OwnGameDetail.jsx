@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
 import ownGameService from "../../../../services/ownGames/ownGames";
 import { AuthContext } from "../../../../context/AuthStore";
 
@@ -49,58 +49,64 @@ function OwnGameDetail() {
       ) : (
         <>
           <div className="flex justify-center mt-40">
-            <div className="flex flex-col justify-center items-center bg-[#974063] border border-gray-200 rounded-lg shadow md:flex-row h-[600px] md:max-w-[800px] hover:bg-gray-700 dark:border-gray-700 dark:bg-white dark:hover:bg-gray-700">
+            <div className="flex flex-col justify-center items-center bg-[#974063] border border-gray-200 rounded-lg shadow md:flex-row h-[700px] md:max-w-[700px] hover:bg-gray-700 dark:border-gray-700 dark:bg-white dark:hover:bg-gray-700">
               <img
-                className="m-7 object-cover w-full rounded-t-lg h-[500px]  md:w-[450px] md:rounded-none md:rounded-l-lg"
+                className="m-7 object-cover w-full rounded-t-lg h-[500px]  md:w-[450px] md:rounded-r-lg md:rounded-l-lg"
                 src={ownGame.game.gameImg}
                 alt=""
               />
-              <div className="flex flex-col justify-between p-4 leading-normal">
-                <h5 className="mb-10 text-2xl font-bold tracking-tight text-gray-200 dark:text-white">
+              <div className=" flex flex-col justify-between p-5 leading-normal">
+                <h5 className="m-3 text-2xl text-center font-bold tracking-tight text-gray-200 dark:text-white">
                   {ownGame.game.name}
                 </h5>
-                <p className=" font-normal text-white dark:text-gray-200">
+                {/* <p className=" m-3 font-normal text-white text-center dark:text-gray-200">
                   {ownGame.game.description}
-                </p>
-                <p className=" font-normal text-white dark:text-gray-200">
-                  {ownGame.state}
-                </p>
+                </p> */}
+
+                <div className="mt-7 mb-7 flex justify-center items-center">
+                  <p className=" text-2xl  text-[#e4e5f2]  dark:text-gray-200">
+                    State:
+                  </p>
+                  <p className="text-white bg-gradient-to-br from-purple-400 to-blue-800 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-lg px-5 py-2.5 text-center mr-2 mb-2 ms-7">
+                    {ownGame.state}
+                  </p>
+                </div>
 
                 <div className="flex justify-between mb-1">
-                  <span className="text-base font-medium text-white dark:text-white">
-                    Progress
-                  </span>
-                  <span className="text-sm font-medium text-white dark:text-white">
-                    {ownGame.progress}
+                  <span className=" text-lg  text-[#e4e5f2]   dark:text-gray-200">
+                    My Progress
                   </span>
                 </div>
-                <div className="">
-                  <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                    <div
-                      className="bg-blue-600 h-2.5 rounded-full"
-                      style={{ width: `${ownGame.progress}%` }}
-                    ></div>
+
+                <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
+                  <div
+                    className="bg-gradient-to-br from-purple-400 to-blue-800 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full"
+                    style={{ width: `${ownGame.progress}%` }}
+                  >
+                    {ownGame.progress}
                   </div>
                 </div>
 
-                <div className="flex buttons mb-3 mt-7 text-center gap-3">
+                <div className="flex justify-center buttons mb-3 mt-7 text-center gap-3">
                   <Link to={`/ownGames/${ownGame.id}/edit`}>
-                    <button className="button primary">Edit</button>
+                    <button className="py-2.5 px-5  text-sm font-medium text-gray-200 focus:outline-none bg-[#41436A] rounded-lg  hover:bg-gray-600 hover:text-white focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                      Edit
+                    </button>
                   </Link>
 
                   <button
-                    className="button primary"
+                    className="py-2.5 px-5  text-sm font-medium text-gray-200 focus:outline-none bg-[#41436A] rounded-lg  hover:bg-gray-600 hover:text-white focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
                     onClick={handleDeleteButton}
                   >
                     Delete
                   </button>
-
-                  {/* <Link to={`/ownGames/${game.id}/create`}>
-                        <button className="button primary ghost">
-                          Leave a Comment
-                        </button>
-                      </Link> */}
                 </div>
+                <button
+                  type="button"
+                  className=" mt-28 py-2.5 px-5  text-sm font-medium text-gray-200 focus:outline-none bg-[#41436A] rounded-lg  hover:bg-gray-600 hover:text-white focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                >
+                  <NavLink to={`/users/me`}>Back to Profile</NavLink>
+                </button>
               </div>
             </div>
           </div>

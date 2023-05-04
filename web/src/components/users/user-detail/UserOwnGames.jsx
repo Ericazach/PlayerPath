@@ -40,7 +40,7 @@ function UserOwnGames() {
   return (
     <div>
       <div className="skills">
-        <h6 className="h6">My Games</h6>
+        <h6 className=" text-gray-200 whitespace-normal dark:text-gray-400 text-2xl">My Games</h6>
         <div className="grid grid-cols-2 md:grid-cols-4 ">
           {ownGames.map((game) => (
             <div key={game.id} className="grid gap-2 m-4">

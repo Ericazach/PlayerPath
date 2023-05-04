@@ -75,7 +75,10 @@ function GameDetail() {
                 <div>
                   <div className="flex justify-center flex-wrap items-center gap-1 mt-5">
                     {game.tags.map((tag) => (
-                      <div className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+                      <div
+                        key={tag}
+                        className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+                      >
                         {tag}
                       </div>
                     ))}
@@ -92,20 +95,12 @@ function GameDetail() {
                           Add to My Games
                         </button>
                       </Link>
-                      {/* <Link to={`/ownGames/${game.id}/create`}>
-                        <button className="button primary ghost">
-                          Leave a Comment
-                        </button>
-                      </Link> */}
                     </div>
                   </>
                 )}
               </div>
             </div>
           </div>
-          {/* <div className="grid grid-cols-3 p-6">
-            <Comments currentUserId={user.id} />
-          </div> */}
         </>
       )}
     </>

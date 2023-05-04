@@ -50,7 +50,7 @@ function OwnGameEditForm() {
               alt=""
             />
             <div className="space-y-12 grid gap-5 justify-items-center p-20 ">
-              <h5 className=" text-2xl font-bold tracking-tight text-gray-200 dark:text-white">
+              <h5 className=" text-center text-2xl font-bold tracking-tight text-gray-200 dark:text-white">
                 {ownGame.game.name}
               </h5>
               <div className="border-b border-gray-900/10 pb-12">
@@ -73,14 +73,10 @@ function OwnGameEditForm() {
                   >
                     State
                   </label>
-                  <div className="mt-3">
+                  <div className="mt-3 mb-7">
                     <select
-                      className={`block w-full rounded-md border-0 py-1.5 text-[#FF9677]  sm:text-2xl sm:leading-6  ${
-                        errors.state ? "border-red-500 border-2" : ""
-                      }`}
-                      {...register("state", {
-                        required: "State is required",
-                      })}
+                      className="bg-transparent border-0 border-b-2 border-white text-white text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      {...register("state")}
                     >
                       <option value="WishList">Playing</option>
                       <option value="Completed">Completed</option>
@@ -98,24 +94,26 @@ function OwnGameEditForm() {
 
                 <div className="mt-1 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-6">
                   <div className="sm:col-span-full">
-                    <label
-                      htmlFor="progress"
-                      className="block mt-5 text-start text-2xl font-medium leading-6 text-[#FF9677]"
-                    >
-                      Progress
-                    </label>
                     <div className="mt-3">
-                      <input
-                        type="number"
-                        className={`block w-full rounded-md border-0 py-1.5 text-[#FF9677]  sm:text-2xl  sm:leading-6  ${
-                          errors.progress ? "border-red-500 border-2" : ""
-                        }`}
-                        max="100"
-                        min="0"
-                        {...register("progress", {
-                          required: "Game progress is required",
-                        })}
-                      />
+                      <div className="relative z-0 w-full mb-6 group">
+                        <input
+                          type="number"
+                          name="progress"
+                          max="100"
+                          min="0"
+                          id="progress"
+                          className="block py-2.5 px-0 w-full text-lg text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-white focus:outline-none focus:ring-0 focus:border-white peer"
+                          placeholder=" "
+                          {...register("progress")}
+                        />
+                        <label
+                          htmlFor="progress"
+                          className=" peer-focus:font-medium absolute text-2xl text-[#FF9677] dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#FF9677] peer-focus:dark:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                        >
+                          Progress
+                        </label>
+                      </div>
+
                       {errors.progress && (
                         <div className="text-red-500 text-lg">
                           {errors.progress?.message}
@@ -124,13 +122,13 @@ function OwnGameEditForm() {
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center justify-center gap-x-6">
-                  <button className="rounded-md bg-[#FF9677] px-3 py-2 text-2xl font-semibold text-[#41436A] shadow-sm hover:bg-[#974063] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#974063] mt-5">
-                    <NavLink to={`/ownGames/${ownGame.id}`}>Cancel</NavLink>
+                <div className="flex items-center justify-center gap-x-2 mt-5">
+                  <button className="text-white bg-gray-700 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-2xl px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+                    <NavLink to={"/users/me"}>Cancel</NavLink>
                   </button>
                   <button
                     type="submit"
-                    className="rounded-md bg-[#FF9677] px-3 py-2 text-2xl font-semibold text-[#41436A] shadow-sm hover:bg-[#974063] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#974063] mt-5"
+                    className="text-white bg-gray-700 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-2xl px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
                   >
                     Edit!
                   </button>
