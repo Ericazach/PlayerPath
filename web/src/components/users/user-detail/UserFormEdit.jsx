@@ -59,107 +59,105 @@ function UserFormEdit() {
                       </div>
                     )}
                   </div>
-                  <label
-                    htmlFor="username"
-                    className="block text-start text-2xl mt-5 font-medium leading-6 text-[#FF9677]"
-                  >
-                    Username
-                  </label>
-                  <div className="mt-3">
-                    <div className=" rounded-md shadow-sm ring-1 ring-inset">
-                      <input
-                        className={`block w-full rounded-md py-1.5  text-[#FF9677] sm:text-2xl sm:leading-6  ${
-                          errors.username ? "border-red-500 border-2" : ""
-                        }`}
-                        type="text"
-                        {...register("username", {
-                          required: "Username is required",
-                          minLength: {
-                            value: 4,
-                            message: "User name needs at least 4 characters",
-                          },
-                        })}
-                      />
-                      {errors.username && (
-                        <div className="text-red-500 text-lg">
-                          {errors.username?.message}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
-                <div className="sm:col-span-full ">
-                  <label
-                    htmlFor="email"
-                    className="block mt-5 text-start text-2xl font-medium leading-6 text-[#FF9677]"
-                  >
-                    Email address
-                  </label>
-                  <div className="mt-3">
+
+                  <div className="relative z-0 w-full mb-6 group mt-4">
                     <input
-                      className={`block w-full rounded-md border-0 py-1.5 text-[#FF9677]  sm:text-2xl sm:leading-6  ${
-                        errors.email ? "border-red-500 border-2" : ""
-                      }`}
-                      type="email"
-                      {...register("email", {
-                        required: "User email is required",
-                        pattern: {
-                          value: /^\S+@\S+\.\S+$/,
-                          message: "User email must be valid",
+                      type="text"
+                      name="username"
+                      id="username"
+                      className="block py-2.5 px-0 w-full text-xl text-gray-300  bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-white focus:outline-none focus:ring-0 focus:border-white peer"
+                      placeholder=" "
+                      {...register("username", {
+                        minLength: {
+                          value: 4,
+                          message: "User name needs at least 4 characters",
                         },
                       })}
                     />
-                    {errors.email && (
+                    {errors.username && (
                       <div className="text-red-500 text-lg">
-                        {errors.email?.message}
+                        {errors.username?.message}
                       </div>
                     )}
+                    <label
+                      htmlFor="username"
+                      className="peer-focus:font-medium absolute text-2xl text-[#FF9677] dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#FF9677] peer-focus:dark:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    >
+                      Username
+                    </label>
                   </div>
                 </div>
 
-                <div className="mt-1 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-6">
-                  <div className="sm:col-span-full">
-                    <label
-                      htmlFor="password"
-                      className="block mt-5 text-start text-2xl font-medium leading-6 text-[#FF9677]"
-                    >
-                      Password
-                    </label>
-                    <div className="mt-3">
-                      <input
-                        type="password"
-                        className={`block w-full rounded-md border-0 py-1.5 text-[#FF9677]  sm:text-2xl  sm:leading-6  ${
-                          errors.password ? "border-red-500 border-2" : ""
-                        }`}
-                        {...register("password", {
-                          required: "User password is required",
-                          minLength: {
-                            value: 8,
-                            message:
-                              "User password needs at least 8 characters",
-                          },
-                        })}
-                      />
-                      {errors.password && (
-                        <div className="text-red-500 text-lg">
-                          {errors.password?.message}
-                        </div>
-                      )}
-                      <div className="col-span-full">
+                <div className="relative z-0 w-full mb-6 group">
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    className="block py-2.5 px-0 w-full text-xl text-gray-300  bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-white focus:outline-none focus:ring-0 focus:border-white peer"
+                    placeholder=" "
+                    {...register("email", {
+                      pattern: {
+                        value: /^\S+@\S+\.\S+$/,
+                        message: "User email must be valid",
+                      },
+                    })}
+                  />
+                  {errors.email && (
+                    <div className="text-red-500 text-lg">
+                      {errors.email?.message}
+                    </div>
+                  )}
+                  <label
+                    htmlFor="email"
+                    className="peer-focus:font-medium absolute text-2xl text-[#FF9677] dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#FF9677] peer-focus:dark:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >
+                    Email
+                  </label>
+                </div>
+
+                <div className="">
+                  <div className="">
+                    <div className="">
+                      <div className="relative z-0 w-full mb-6 group">
+                        <input
+                          type="password"
+                          name="password"
+                          id="password"
+                          className="block py-2.5 px-0 w-full text-xl text-gray-300  bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-white focus:outline-none focus:ring-0 focus:border-white peer"
+                          placeholder=" "
+                          {...register("password", {
+                            minLength: {
+                              value: 8,
+                              message:
+                                "User password needs at least 8 characters",
+                            },
+                          })}
+                        />
+                        {errors.password && (
+                          <div className="text-red-500 text-lg">
+                            {errors.password?.message}
+                          </div>
+                        )}
                         <label
-                          htmlFor="bio"
-                          className="block text-start mt-5 text-2xl font-medium leading-6 text-[#FF9677]"
+                          htmlFor="password"
+                          className="peer-focus:font-medium absolute text-2xl text-[#FF9677] dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#FF9677] peer-focus:dark:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                         >
-                          Bio
+                          Password
                         </label>
-                        <div className="mt-3">
+                      </div>
+
+                      <div className="col-span-full">
+                        <div className="relative z-0 w-full mb-6 group">
+                          <label
+                            htmlFor="bio"
+                            className=" mt-5 text-start text-2xl font-medium leading-6 text-[#FF9677]"
+                          >
+                            Bio
+                          </label>
                           <textarea
-                            className={`block w-full rounded-md text-lg py-1.5 text-[#FF9677]  ${
-                              errors.bio ? "border-red-500 border-2" : ""
-                            }`}
+                            className="block py-2.5 px-0 w-full text-xl text-gray-300  bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-white focus:outline-none focus:ring-0 focus:border-white peer"
                             rows={3}
                             {...register("bio", {
-                              required: "User bio is required",
                               minLength: {
                                 value: 6,
                                 message: "User bio needs at least 6 characters",
