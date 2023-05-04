@@ -55,8 +55,8 @@ function NavbarGames() {
               </>
             ) : (
               <>
-                <NavLink to="/register" className={renderNavLink}>
-                  <span className="text-lg ">Register</span>
+                <NavLink to="/register">
+                  <span className="text-lg text-[#FF9677]">Register</span>
                 </NavLink>
               </>
             )}

@@ -22,9 +22,8 @@ function Slider({ games }) {
 
   return (
     <div>
-      <div className="slider">
-        <FaArrowAltCircleLeft className="left-arrow" onClick={prevSlide} />
-        <FaArrowAltCircleRight className="right-arrow" onClick={nextSlide} />
+      <div className="slider flex ">
+        <FaArrowAltCircleLeft className="left-arrow me-10" onClick={prevSlide} />
         {gamesImages.map((slide, index) => {
           return (
             <div
@@ -37,6 +36,7 @@ function Slider({ games }) {
             </div>
           );
         })}
+        <FaArrowAltCircleRight className="right-arrow ms-10" onClick={nextSlide} />
       </div>
     </div>
   );

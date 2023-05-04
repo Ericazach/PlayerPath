@@ -30,7 +30,7 @@ const userSchema = new Schema(
       type: String,
       match: [/^https?:\/\/.+\.(jpg|jpeg|png)$/, "Image URL must be valid"],
       default:
-        "https://1.bp.blogspot.com/-HoI-Nc2GoIo/W0o1pDDhNdI/AAAAAAAADsg/kWmHbVTLREo171PiXwDVwphjrJtITYobQCLcBGAs/s1600/silenthillplaystationcapaneoplayyerimag11111.jpg",
+        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png",
     },
     bio: {
       type: String,
