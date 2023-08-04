@@ -27,8 +27,15 @@ function OwnGameEditForm() {
     formState: { errors },
   } = useForm({ mode: "onBlur" });
 
-  const onEditOwnGame = async (ownGame) => {
+  const onEditOwnGame = async (ownGame1) => {
     try {
+      if (ownGame1.progress === ownGame.progress) {
+        delete ownGame1.process;
+      }
+
+      if (ownGame1.state === ownGame.status) {
+        delete ownGame1.progress;
+      }
       const editedOwnGame = await ownGameService.edit(ownGameId, ownGame);
       navigate(`/ownGames/${ownGameId}`);
     } catch (error) {

@@ -12,6 +12,8 @@ function GameDetail() {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
 
+  const idGames = user.ownGames.map((game) => game.game.id);
+
   useEffect(() => {
     async function fetchGame() {
       try {
@@ -85,7 +87,7 @@ function GameDetail() {
                   </div>
                 </div>
 
-                {!user ? (
+                {!user || idGames.includes(game.id) ? (
                   <></>
                 ) : (
                   <>

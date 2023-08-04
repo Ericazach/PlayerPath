@@ -40,6 +40,10 @@ function OwnGameDetail() {
     }
   };
 
+  if (!ownGame) {
+    return <></>;
+  }
+
   return (
     <div>
       {!ownGame ? (
@@ -52,7 +56,7 @@ function OwnGameDetail() {
             <div className="flex flex-col justify-center items-center bg-[#974063] border border-gray-200 rounded-lg shadow md:flex-row h-[700px] md:max-w-[700px] hover:bg-gray-700 dark:border-gray-700 dark:bg-white dark:hover:bg-gray-700">
               <img
                 className="m-7 object-cover w-full rounded-t-lg h-[500px]  md:w-[450px] md:rounded-r-lg md:rounded-l-lg"
-                src={ownGame.game.gameImg}
+                src={ownGame?.game?.gameImg}
                 alt=""
               />
               <div className=" flex flex-col justify-between p-5 leading-normal">

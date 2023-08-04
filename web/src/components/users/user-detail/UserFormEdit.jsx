@@ -23,6 +23,8 @@ function UserFormEdit() {
       formData.append("bio", data.bio);
       formData.append("password", data.password);
       formData.append("email", data.email);
+      //TODO eliminar elementos extra del objeto que devuelve formData
+
       const newUser = await userService.edit(user.id, formData);
       onUserEdit(newUser);
       navigate("/users/me");
