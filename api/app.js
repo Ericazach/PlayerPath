@@ -16,9 +16,17 @@ const secure = require("./middlewares/secure.mid");
 app.use(cors);
 app.use(express.json());
 
+
 app.use(logger("dev"));
 
+app.use(express.static(`${__dirname}/public`))
+
 app.use("/api/v1", require("./config/routes.config"));
+
+app.get("*", (req, res) => {
+  res.sendFile(`${__dirname}/public/index.html`)
+})
+
 app.use(secure.cleanBody);
 app.use((req, res, next) => next(createError(404, "Route not found")));
 app.use((error, req, res, next) => {
